@@ -22,7 +22,34 @@ class Queue:
         self.size = len(self.storage)
 
     def enqueue(self, value):
-        pass
+        self.storage = self.storage.append(value)
 
     def dequeue(self):
-        pass
+        self.storage = self.storage.pop(0)
+
+class Node:
+    def __init__(self, data):
+        self.data = data;
+        self.next = None
+
+class QueueWithLinkedLists:
+    def __init__(self):
+        self.head = None
+        self.last = None
+    
+    def enqueue(self, data):
+        if self.last is None:
+            self.head = Node(data)
+            self.last = self.head
+
+    def dequeue(self):
+        if self.head is None:
+            return None
+        else:
+            value_to_remove = self.head.data
+            self.head = self.head.next
+            return value_to_remove
+
+# Try out here
+a_queue = Queue()
+b_queue = QueueWithLinkedLists()
