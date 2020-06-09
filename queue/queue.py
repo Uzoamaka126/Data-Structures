@@ -53,3 +53,7 @@ class QueueWithLinkedLists:
 # Try out here
 a_queue = Queue()
 b_queue = QueueWithLinkedLists()
+
+# An array is less performant than a linked list. Mostly because for an array to perform a pop or push action, all the 
+# items in the array needs to be shifted one by one with a time complexity of 0(n) as opposed to linked lists where all we have to do is remove nodes and links
+# to the nodes leaving a constant time of 0(1)
