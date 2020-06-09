@@ -20,12 +20,15 @@ class Stack:
 
     def __len__(self):
         self.size = len(self.storage)
+        return self.size
 
     def push(self, value):
-        self.storage = self.storage.append(value)
+       self.storage.append(value)
 
     def pop(self):
-        self.storage = self.storage.pop()
+        if len(self.storage) > 0:
+            return self.storage.pop()
+        # return self.storage
 
 a_stack = Stack(5);
 # print(a_stack)

@@ -20,12 +20,14 @@ class Queue:
     
     def __len__(self):
         self.size = len(self.storage)
+        return self.size
 
     def enqueue(self, value):
-        self.storage = self.storage.append(value)
+        self.storage.append(value)
 
     def dequeue(self):
-        self.storage = self.storage.pop(0)
+        if len(self.storage) > 0:
+            return self.storage.pop(0)
 
 class Node:
     def __init__(self, data):
