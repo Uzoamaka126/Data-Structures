@@ -16,13 +16,46 @@ Stretch: What if you could only use instances of your Stack class to implement t
 class Queue:
     def __init__(self):
         self.size = 0
-        # self.storage = ?
+        self.storage = []
     
     def __len__(self):
-        pass
+        self.size = len(self.storage)
+        return self.size
 
     def enqueue(self, value):
-        pass
+        self.storage.append(value)
 
     def dequeue(self):
-        pass
+        if len(self.storage) > 0:
+            return self.storage.pop(0)
+
+class Node:
+    def __init__(self, data):
+        self.data = data;
+        self.next = None
+
+class QueueWithLinkedLists:
+    def __init__(self):
+        self.head = None
+        self.last = None
+    
+    def enqueue(self, data):
+        if self.last is None:
+            self.head = Node(data)
+            self.last = self.head
+
+    def dequeue(self):
+        if self.head is None:
+            return None
+        else:
+            value_to_remove = self.head.data
+            self.head = self.head.next
+            return value_to_remove
+
+# Try out here
+a_queue = Queue()
+b_queue = QueueWithLinkedLists()
+
+# An array is less performant than a linked list. Mostly because for an array to perform a pop or push action, all the 
+# items in the array needs to be shifted one by one with a time complexity of 0(n) as opposed to linked lists where all we have to do is remove nodes and links
+# to the nodes leaving a constant time of 0(1)
